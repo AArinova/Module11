@@ -20,20 +20,28 @@ class RunnerTest(unittest.TestCase):
         runner = Runner('test_runner')
         for _ in range(10):
             runner.walk()
+        #print('walk ',runner.distance)
         self.assertEqual(runner.distance, 50)
 
     def test_run(self):
-        """метод, в  котором создаётся объект класса Runner с произвольным именем и вызовите run() у
-    этого объекта 10 раз."""
-    #После чего методом assertEqual сравните distance этого объекта со значением 100.
-        pass
+        """метод, в котором 10 раз вызsвывается run() у объекта класса Runner и сравнивается атрибут distance этого объекта со значением 100."""
+        runner = Runner('test_runner')
+        for _ in range(10):
+            runner.run()
+        #print("run ",runner.distance)
+        self.assertEqual(runner.distance, 100)
+
 
     def test_challenge(self):
-        """метод в котором создаются 2 объекта класса Runner с произвольными именами."""
-    #Далее  10 раз у объектов вызываются методы run и walk соответственно.Т.к.дистанции
-    #должны быть разными, используйте метод assertNotEqual, чтобы убедится в неравенстве результатов.
-        pass
+        """метод в котором создаются 2 объекта класса Runner 10 раз у объектов вызываются методы run и walk соответственно. Результаты работы методов сравниваются."""
+        runner1 = Runner('test_runner1')
+        runner2 = Runner('test_runner2')
+        for _ in range(10):
+            runner1.run()
+            runner2.walk()
+        #print(runner1.distance, runner2.distance)
+        self.assertNotEqual(runner1.distance, runner2.distance)
 
 if __name__ == "__main__":
     unittest.main()
-    print('Hello')
+
